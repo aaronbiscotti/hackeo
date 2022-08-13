@@ -1,6 +1,6 @@
 import React from 'react'
 
-const sidebar = () => {
+const Sidebar = () => {
   return (
     <>
       <div className="flex justify-end h-screen">
@@ -28,4 +28,4 @@ const sidebar = () => {
   );
 }
 
-export default sidebar
+export default Sidebar
