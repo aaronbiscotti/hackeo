@@ -24,7 +24,7 @@ const Navbar = () => {
                 <h1 className="text-4xl">Settings</h1>
                 <div className="flex h-full flex-col justify-around">
                     <div>
-                        <h1 className="font-light mb-5">Select a theme</h1>
+                        <h1 className="font-light mb-5 mt-8">Select a theme</h1>
                         <div className="flex flex-col items-start space-y-5">
                             {subjects.map((subject, index) => (
                                 <button className="mcq" key={index}>
