@@ -10,4 +10,17 @@ const io = new Server(server, {
         origin: "http://localhost:3000",
         methods: ["GET", "POST"],
     },
+});
+
+io.on("connection", (socket) => {
+    console.log(`User Connected: ${socket.id}`)
+
+    socket.on("send_message", (data) => {
+        socket.broadcast.emit("receive_message", data);
+    })
 })
+
+server.listen(3001, () => {
+    console.log("SERVER IS RUNNING!!!");
+});
+
