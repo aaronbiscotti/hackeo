@@ -10,7 +10,7 @@ const subjects = [
 ]
 
 const Navbar = () => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     return (
         <div className="h-[150px] w-screen flex justify-between px-12 items-center text-white fixed">
             <div className="flex flex-col justify-center items-start">
