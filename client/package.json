@@ -11,12 +11,16 @@
   "dependencies": {
     "@headlessui/react": "^1.6.6",
     "@heroicons/react": "^1.0.6",
+    "axios": "^0.27.2",
     "express": "^4.18.1",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "socket.io": "^4.5.1",
-    "socket.io-client": "^4.5.1"
+    "socket.io-client": "^4.5.1",
+    "stream-chat": "^6.8.0",
+    "stream-chat-react": "^9.4.1",
+    "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.8",
