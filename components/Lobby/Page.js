@@ -7,12 +7,12 @@ const Page = () => {
             <div className="flex flex-col items-center space-y-8">
                 <h1 className="text-4xl">Play</h1>
                 <input type="text" placeholder="Room code" />
-                <button>
+                <button className="btn">
                     Play
                 </button>
                 <h1 className="text-light font-semibold">OR</h1>
                 <Link href="/create-room">
-                    <button>
+                    <button className="btn">
                         Generate room code
                     </button>
                 </Link>

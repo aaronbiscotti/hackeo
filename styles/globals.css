@@ -23,15 +23,30 @@ input:focus {
   outline: none;
 }
 
-button {
+.btn {
   background: #4C21F4;
   width: 375px;
   height: 50px;
   transition: ease-out 0.3s;
 }
 
-button:hover {
+.btn:hover {
   box-shadow: inset 400px 0 0 0 #623DF6;
+}
+
+.mcq {
+  width: 100%;
+  border: 1px solid #686F8E;
+  background: none;
+  text-align: start;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 50px;
+}
+
+.mcq:focus {
+  border: 1px solid #0AC6D0;
 }
 
 a {
