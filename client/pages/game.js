@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidebar from "../components/Game/sidebar";
 import TheTimer from "../components/Game/timer";
+import Question from "../components/Game/question";
 
 const game = () => {
   return (
@@ -11,8 +12,11 @@ const game = () => {
             Time Remaining
           </h1>
           <TheTimer />
+
+          
         </div>
-        <Sidebar />
+        {/* <Sidebar /> */}
+        <Question />
       </div>
     </>
   );
