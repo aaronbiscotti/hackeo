@@ -1,8 +1,11 @@
 import React from 'react'
+import Sidebar from '../../components/Game/sidebar'
 
 const Details = () => {
     return (
-        <div>Details Page</div>
+        <div>
+            <Sidebar />
+        </div>
     )
 }
 
