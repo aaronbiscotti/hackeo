@@ -9,8 +9,8 @@ export default function Main() {
     const [score, setScore] = tracker;
     const numbers = 10;
     const yn = 60;
-    let error = new Audio("/error.mp3");
-    let success = new Audio("/success.mp3");
+    const [error] = useState(typeof Audio !== "undefined" && new Audio("/error.mp3"));
+    const [success] = useState(typeof Audio !== "undefined" && new Audio("/success.mp3"));
 
     const [selectedArr, setSelectedArr] = useState([]);
     const grid = [];
