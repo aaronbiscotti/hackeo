@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar from "../components/Game/sidebar";
-import TheTimer from "../components/Game/timer";
+import TheTimer from "../components/Game/Timer";
 import Question from "../components/Game/question";
 
 const game = () => {
