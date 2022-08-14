@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from '../../components/Game/sidebar'
+import Sidebar from '../components/Game/sidebar';
 const { Client } = require('@notionhq/client');
 
 const Game = ({ data }) => {
@@ -17,8 +17,17 @@ export const getStaticProps = async () => {
     });
 
     const data = await notion.databases.query({
-        database_id_id: process.env.DATABASE_ID,
+        database_id: process.env.DATABASE_ID,
     });
+
+    const questions = data.results.map(question => ({
+        id: question.id,
+        // category: question.properties.Category.Title.title[0].plain_text,
+        // title: question.properties.Title.title[0].plain_text,
+        // choices: question.properties.Choices.multi_select.map(
+        //     (choice) => choice.name
+        // ),
+    }))
 
     return {
         props: {

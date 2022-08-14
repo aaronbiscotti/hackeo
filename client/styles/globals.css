@@ -38,9 +38,9 @@ input:focus {
   width: 100%;
   border: 1px solid #686F8E;
   background: none;
-  text-align: start;
+  text-align: flex-start;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   height: 50px;
 }
