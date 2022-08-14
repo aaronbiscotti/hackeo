@@ -3,7 +3,7 @@ import React from 'react'
 const Sidebar = () => {
   return (
     <>
-      <div className="flex justify-end h-screen">
+      <div className="flex h-screen fixed right-0">
         <div className="bg-[#282D4A] w-1/3 box-border p-8">
           <h1 className="text-4xl w-3/4 mb-5">
             Welcome to <span className="font-bold">our game.</span>
