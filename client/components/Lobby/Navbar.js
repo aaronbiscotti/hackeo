@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { CogIcon } from '@heroicons/react/outline'
+import { LoginContext } from "../Contexts/LoginContext";
 
 const subjects = [
     "Mathematics",
@@ -10,12 +11,13 @@ const subjects = [
 ]
 
 const Navbar = () => {
+    const { username } = useContext(LoginContext);
     const [open, setOpen] = useState(true);
     return (
         <div className="h-[150px] w-screen flex justify-between px-12 items-center text-white fixed">
             <div className="flex flex-col justify-center items-start">
                 <h1 className="font-semibold text-light text-3xl">WELCOME</h1>
-                <h1 className="text-4xl font-medium">hotpotato44</h1>
+                <h1 className="text-4xl font-medium">{username}</h1>
             </div>
             <CogIcon className="h-10 w-10 duration-300 ease-in-out hover:rotate-45 cursor-pointer z-[100]"
                 onClick={() => setOpen(!open)}
