@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { questionData } from "../../pages/api/data";
+import { GameContext } from '../../components/Contexts/GameContext';
 
 export default function Main() {
     const [open, setOpen] = useState(false);
     const [num, setNum] = useState(0);
+    const { tracker } = useContext(GameContext);
+    const [score, setScore] = tracker;
     const numbers = 10;
     const yn = 60;
+    let error = new Audio("/error.mp3");
+    let success = new Audio("/success.mp3");
 
     const [selectedArr, setSelectedArr] = useState([]);
     const grid = [];
@@ -33,7 +38,6 @@ export default function Main() {
     const question = questionData[num];
     const multiple_choices = question.Choices.split(",");
 
-
     return (
         <>
             {open &&
@@ -53,17 +57,33 @@ export default function Main() {
                             </h1>
                             <div className="flex flex-col">
                                 {multiple_choices.map((choice, index) => (
-                                    <button className="mcq mb-5 w-full" key={index} onClick={() => { setOpen(false) }}>
+                                    <button className="mcq mb-5 w-full" key={index} onClick={(e) => {
+                                        e.preventDefault();
+                                        if (choice === " " + question["Correct Answer"]) {
+                                            if (question.Difficulty === "Hard") {
+                                                setScore(score + 5);
+                                            } else if (question.Difficulty === "Medium") {
+                                                setScore(score + 3);
+                                            } else if (question.Difficulty === "Easy") {
+                                                setScore(score + 1)
+                                            }
+                                            success.play();
+                                        } else {
+                                            setScore(score - 1);
+                                            error.play();
+                                        }
+                                        setOpen(false);
+                                    }}>
                                         <div className="rounded-[100%] h-5 w-5 ml-5 border border-[#686F8E]" />
                                         <p className="ml-5 text-sm">{choice}</p>
                                     </button>
                                 ))}
                             </div>
                         </div>
-                        <div className="absolute bg-white top-0 bottom-0 left-0 right-[100px] opacity-0 z-[1000]" />
+                    <div className="absolute bg-white top-0 bottom-0 left-0 lg:right-[400px] md:right-[500px] opacity-0 z-[1000]" />
                     </>
                 )}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center justify-center">
                 <div className="flex flex-wrap max-w-[950px] p-20 m-auto">
                     {grid?.map((g) => (
                         <div

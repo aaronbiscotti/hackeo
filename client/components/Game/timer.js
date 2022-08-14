@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import End from "./End";
 
 export default class TheTimer extends Component {
   state = {
@@ -37,7 +38,7 @@ export default class TheTimer extends Component {
     return (
       <div>
         {minutes === 0 && seconds === 0 ? (
-          <h1 className="text-[#fff] text-3xl font-medium">Time is up!</h1>
+          <End />
         ) : (
             <h1 className="text-[#fff] text-3xl font-medium">
             {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
