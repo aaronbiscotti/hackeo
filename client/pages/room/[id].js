@@ -1,6 +1,7 @@
 import React from 'react'
 import TheTimer from '../../components/Game/Timer';
 import Question from '../../components/Game/Question';
+import Main from '../../components/Game/Main';
 
 const Game = () => {
     return (
@@ -15,7 +16,7 @@ const Game = () => {
 
         </div>
                 {/* <Sidebar /> */}
-                <Question />
+                <Main />
             </div>
         </>
     );
