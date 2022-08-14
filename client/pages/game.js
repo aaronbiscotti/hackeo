@@ -1,39 +1,21 @@
 import React from 'react'
-import Sidebar from '../components/Game/sidebar';
-const { Client } = require('@notionhq/client');
+import Sidebar from "../components/Game/sidebar";
+import TheTimer from "../components/Game/timer";
 
-const Game = ({ data }) => {
-    return (
-        <div>
-            <pre>{JSON.stringify(data, null, 2)}</pre>
-            <Sidebar />
+const game = () => {
+  return (
+    <>
+      <div className="flex justify-start ">
+        <div className="m-4 ">
+          <h1 className="text-[#686F8E] font-bold w-56 text-2xl">
+            Time Remaining
+          </h1>
+          <TheTimer />
         </div>
-    )
+        <Sidebar />
+      </div>
+    </>
+  );
 }
 
-export const getStaticProps = async () => {
-    const notion = new Client({
-        auth: process.env.NOTION_KEY,
-    });
-
-    const data = await notion.databases.query({
-        database_id: process.env.DATABASE_ID,
-    });
-
-    const questions = data.results.map(question => ({
-        id: question.id,
-        // category: question.properties.Category.Title.title[0].plain_text,
-        // title: question.properties.Title.title[0].plain_text,
-        // choices: question.properties.Choices.multi_select.map(
-        //     (choice) => choice.name
-        // ),
-    }))
-
-    return {
-        props: {
-            data,
-        },
-    };
-};
-
-export default Game
+export default game
