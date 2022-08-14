@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Question from "./Question";
+import { questionData } from "../../pages/api/data";
 
 export default function Main() {
     const [open, setOpen] = useState(false);
@@ -30,10 +30,39 @@ export default function Main() {
         setNum(Math.floor(Math.random() * 47));
     }
 
+    const question = questionData[num];
+    const multiple_choices = question.Choices.split(",");
+
 
     return (
         <>
-            {open && <Question index={num} prop={'right-0'} />}
+            {open &&
+                (
+                    <>
+                        <div className={`${open ? 'right-0' : 'translate-x-[-500px]  ease-in-out'} fixed duration-500 w-[500px] bg-[#282D4A] top-0 bottom-0 px-20 flex flex-col justify-center space-y-5`}>
+                            <div className="flex">
+                                <div className="px-4 flex justify-center items-center mr-6 bg-[#0AC6D0] rounded-3xl">
+                                    <p className="text-sm">{question.Category}</p>
+                                </div>
+                                <div className="px-4 flex justify-center items-center bg-[#F65A50] rounded-3xl">
+                                    <p className="text-sm">{question.Difficulty}</p>
+                                </div>
+                            </div>
+                            <h1 className="text-2xl">
+                                {question.Title}
+                            </h1>
+                            <div className="flex flex-col">
+                                {multiple_choices.map((choice, index) => (
+                                    <button className="mcq mb-5 w-full" key={index} onClick={() => { setOpen(false) }}>
+                                        <div className="rounded-[100%] h-5 w-5 ml-5 border border-[#686F8E]" />
+                                        <p className="ml-5 text-sm">{choice}</p>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="absolute bg-white top-0 bottom-0 left-0 right-[100px] opacity-0 z-[1000]" />
+                    </>
+                )}
             <div className="flex flex-col items-center">
                 <div className="flex flex-wrap max-w-[950px] p-20 m-auto">
                     {grid?.map((g) => (
